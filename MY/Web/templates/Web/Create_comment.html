@@ -1,0 +1,13 @@
+{% extends 'Web/base.html'%}
+
+{% block content %}
+<div class="col-xs-9">
+    <form id = 'add_form' method = "post" enctype="multipart/form-data">
+        {% csrf_token%} 
+        {{form}}
+        
+        <p><h4>Номер Вашей книги: {{f}}</h4></p>
+
+    <button form = "add_form" tupe = "submit" class = "btn">Добавить комментарий</button>
+</div>
+{% endblock %}

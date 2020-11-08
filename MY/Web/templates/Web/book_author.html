@@ -1,0 +1,14 @@
+{% extends 'Web/base.html'%}
+
+
+{% block content %}  
+<h3> Список авторов в библиотеке:</h3>
+{% for book in l %}
+    <div class="desc_box"><span class="desc1"></span>
+        <span class="book_author"><a href="{{book.author}}">{{book.author}}</div></span></a>
+        
+    
+{% endfor %}        
+{% endblock %}
+
+

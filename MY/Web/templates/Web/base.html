@@ -1,0 +1,72 @@
+{% load static %}
+<!DOCTYPE html>
+    <html>
+        <head>
+            <meta charset="UTF-8">
+            <title>"Электронная библиотека фэнтези и фантастики</title>
+            <link href="{% static 'bootstrap.css' %}" type="text/css" rel="stylesheet" >
+            
+            <link rel="shortcut icon" href="{% static 'Images\dragon.svg' %}" type="image/svg">
+        </head>
+        <body >
+        <body >
+            
+            
+            
+            <main>
+                <div class="row">
+                    <div class="span9">
+                        <div class="login_btn">
+                            {% if user.is_authenticated %}
+                            <p><h4>Добро пожаловать {{user}}</h4></p>
+                            <a class="label label-default" href="{% url 'add_book'%}"><b>Добавить книгу</a></b> 
+                            <a class="label label-default" href="{% url 'Logout'%}"><b>ВЫХОД</a></b>
+                            
+                            {% else %}
+                            <p><h4>Добро пожаловать !!!</h4></p>
+                            <p><a class="label label-default" href="{% url 'Auth'%}"><b>ВХОД</p></a></b>
+                            {% endif %}
+                        </div>
+                        <div class="img_top">
+                            <div class="img_button">
+                                <img src="{% static 'Images\Name.png' %}">  
+                            </div>
+                        <img src="{% static 'Images\zagl.jpg' %}" width="100%" height="250pxl">
+                        <p></p>
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2 left">
+                            <div class="left-main">
+                                <p class="list-group-item list-group-item-action list-group-item-danger"><a href="{% url 'Main'%}"><b>Все книги</p></a></b>
+                                <p class="list-group-item list-group-item-action list-group-item-danger"><a href="{% url 'New' %}"><b>Новые поступления</p></a></b>
+                                <p class="list-group-item list-group-item-action list-group-item-danger"><a href="{% url 'About' %}"><b>О сайте</p></a></b>
+                                <h3>Сортировка:</h3>
+                                <p class="list-group-item list-group-item-action list-group-item-danger"><a href="{% url 'By_author' %}">По автору</p></a>
+                                <p class="list-group-item list-group-item-action list-group-item-danger"><a href="{% url 'By_novelty' %}">По новизне</p></a>
+                                <p class="list-group-item list-group-item-action list-group-item-danger"><a href="{% url 'By_comments' %}">По комментариям</p></a>
+                                
+                            </div>
+                            </div>
+                            <div class="col-xs-12 col-sm-10 col-md-10 col-lg-10 right">
+                                <div class="senter-main">
+                  
+                  
+                                    {% block content %}
+                                    {% endblock  %}
+                                    {% block comments %}
+                                    {% endblock  %}
+                                    {% block test %}
+                                    {% endblock  %}
+                                    
+                                    
+            
+                                </div>
+                            </div>
+                      </div>
+                    </div>
+                  </div>
+                  
+                    
+                 
+            </main>
+        </body>
+    </html>

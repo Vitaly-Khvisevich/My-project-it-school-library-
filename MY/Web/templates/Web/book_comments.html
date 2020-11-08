@@ -1,0 +1,39 @@
+{% extends 'Web/base.html'%}
+
+
+{% block content %}  
+<p><h4>Представляем вашему вниманию самые обсуждаемые книги коллекции:</h4></p>
+
+
+{% for id_b in h %}
+    {%for book in books%}
+        {% if id_b == book.id %}
+            <div class="item_block">
+            <div class="book">
+                <img src="{{book.picture.url}}" alt="{{book.book_name}}" title="{{book.book_name}}" width="200px">
+        
+            </div>
+            <div class="card_info">
+                <div class="book_name"><h4>{{book.book_name}}</h4></div>
+                <div class="desc_box"><span class="desc1">Автор:</span>
+                    <span class="book_author">{{book.author}}</div></span>
+                <div class="desc_box"><span class="desc1">Серия:</span>
+                    <span class="book_series">{{book.series}}</div></span>
+                <div class="desc_box"><span class="desc1">Язык книги:</span>
+                    <span class="book_language">{{book.language}}</div></span>
+                <div class="desc_box"><span class="desc1">Дата релиза:</span>
+                    <span class="book_release_year">{{book.release_year}}</div></span>
+
+                <div class="brief_description"><p>{{book.brief_description}}</p>
+                </div>
+                    <a href="{% url 'Book_id' book.id %}" class="btn">Подробнее</a>
+            
+            
+            </div>            
+        </div>
+        {% endif %}
+    {% endfor %}    
+{% endfor %}        
+   
+
+{% endblock %}
